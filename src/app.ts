@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
 const app = express();
-import * as dotenv from 'dotenv';
-
 dotenv.config();
-
+app.set('port', process.env.PORT || 3000);
 
 mongoose.connect(process.env.MONGODB_URI!, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true} ).then(
     () => {
